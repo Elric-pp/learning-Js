@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>匿名函数</title>
+    <script>
+        function text(a,func){
+            func(a);
+        }
+        var funcc = new Function('x','alert(x)');
+        text('hello',funcc);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #block{
+            width: 400px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            document.getElementById("block").style.backgroundColor="#fff";
+            setTimeout("colorFlash(255)",300);
+        }
+
+        function colorFlash(newColor){
+            var hexVal = newColor.toString(16);
+            if(hexVal.length<2){
+                hexVal = "0"+hexVal;
+            }
+            var colorString = "#ffff" + hexVal;
+            var blockDiv = document.getElementById("block");
+            blockDiv.style.backgroundColor = colorString;
+            if(newColor > 0){
+                newColor -= 5;
+                setTimeout("colorFlash(" + newColor + ")",50);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="block">
+        <h1>Hello</h1>
+    </div>
+</body>
+</html>

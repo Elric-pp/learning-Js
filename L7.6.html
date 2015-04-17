@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function cascadeDown(evnt){
+            alert("Capturing: "+this);
+        }
+
+        function bubbleUp(evnt){
+            alert(("Bubbling: "+this))
+        }
+
+        window.onload = setup;
+
+        function setup(evnt){
+            document.addEventListener('click',cascadeDown,true);
+            document.forms[0].addEventListener('click',cascadeDown,true);
+            document.forms[0].elements[0].addEventListener('click',cascadeDown,true);
+
+            document.addEventListener('click',bubbleUp,false);
+            document.forms[0].addEventListener('click',bubbleUp,false);
+            document.forms[0].elements[0].addEventListener('click',bubbleUp,false);
+        }
+    </script>
+</head>
+<body>
+    <form style="background-color: #f00;width: 100px;height: 100px;padding: 10px" action="">
+    <p>
+        <input type="submit" value="Submit"><br/>
+    </p>
+    </form>
+</body>
+</html>

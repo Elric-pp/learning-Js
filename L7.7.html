@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function clickMe(evnt){
+            var eventTarget = evnt.target? evnt.target:evnt.srcElement;
+            console.log(eventTarget + "" +evnt.type);
+            var canBeCanceled = evnt.canceleable? evnt.cancelable : "NA";
+            console.log("can be canceled?" + canBeCanceled );
+            var bubbleEvent = evnt.bubbles?evnt.bubbles:"NA";
+            console.log("bubbling?" + bubbleEvent);
+            var theTime = evnt.timeStamp? evnt.timeStamp : "NA";
+            console.log(theTime);
+        }
+
+        window.onload = setup;
+       // window.onload = cleanUp;
+        function setup(evnt){
+            var evtObject= document.getElementById("clickme");
+            if(evtObject.addEventListener){
+                evtObject.addEventListener("click",clickMe,false);
+            }else if(evtObject.attachEvent){
+                evtObject.attachEvent("onclick",clickMe);
+            }else if(evtObject.onclick){
+                evtObject.onclick=clickMe;
+            }
+        }
+
+        /*function cleanUp(){
+            var evtObject = document.getElementById("clickme");
+            if(evtObject.detachEvent){
+                evtObject.detachEvent("onclick",clickMe);
+            }
+        }*/
+
+    </script>
+</head>
+<body>
+    <div id="clickme" style="background-color: #ff0;width: 200px;height: 200px;padding: 20px">
+        <p>Click Me</p>
+    </div>
+</body>
+</html>

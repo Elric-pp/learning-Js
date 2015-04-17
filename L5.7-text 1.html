@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>递归算阶乘</title>
+    <script>
+        function findFactorial(n){
+            if (n == 0 ) return 1;
+            return (n * findFactorial(n-1));
+        }
+
+        var num = findFactorial(4);
+        alert(num);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
